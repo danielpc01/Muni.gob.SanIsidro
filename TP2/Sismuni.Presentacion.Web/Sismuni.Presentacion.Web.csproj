@@ -253,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bd\ScriptBD.sql" />
+    <Content Include="Bd\SISMUNI_TESO_FINANZAS.sql" />
     <Content Include="Content\Main.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
