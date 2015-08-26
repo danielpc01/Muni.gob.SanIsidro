@@ -1,0 +1,13 @@
+﻿@model  Sismuni.Dominio.Entidad.ControlPatrimonial.AsignacionBienMuebleVob
+
+<tr>
+    <td class="gridColumn">
+        @Html.DisplayFor(modelItem => Model.Cantidad)
+    </td>
+    <td class="gridColumn">
+        @Html.DisplayFor(modelItem => Model.BienMueble.Nombre)
+    </td>
+    <td class="gridColumnEdit">
+        @Html.ActionLink("Eliminar", "Index", new { id = Model.IdAsignacion })
+    </td>
+</tr>

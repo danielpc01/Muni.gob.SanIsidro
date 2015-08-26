@@ -1,0 +1,5 @@
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Agente.Servicio\bin\Debug\Sismuni.Agente.Servicio.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Agente.Servicio\bin\Debug\Sismuni.Agente.Servicio.pdb
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Agente.Servicio\obj\Debug\Sismuni.Agente.Servicio.csprojResolveAssemblyReference.cache
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Agente.Servicio\obj\Debug\Sismuni.Agente.Servicio.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Agente.Servicio\obj\Debug\Sismuni.Agente.Servicio.pdb

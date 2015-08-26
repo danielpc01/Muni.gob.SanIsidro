@@ -1,0 +1,180 @@
+﻿@model Sismuni.Presentacion.Web.Models.ControlPatrimonial.AsignacionBien.SolicitudAsignacionBienViewModel
+
+@{
+    ViewBag.Title = "Solicitud de Asignación de Bienes";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        @* <input type="text" placeholder="Textbox ejemplo" />
+            <input type="button" value="Botón ejemplo" class="myButton" />*@
+
+        <ul class="form">
+            <li class="columna33">
+                <label for="NroSolicitudAsignacion">Nro. Solicitud</label>
+                <div>
+                    @Html.EditorFor(model => model.SolicitudAsignacion.NroSolicitudAsignacion, new { htmlAttributes = new { @style = "width:100%" } })
+                    @Html.ValidationMessageFor(model => model.SolicitudAsignacion.NroSolicitudAsignacion, "", new { @class = "text-danger" })
+                    @*<input type="text" id="txtEjemplo" style="width: 100%" />*@
+                </div>
+            </li>
+            <li class="columna33">
+                <div style="text-align:left; margin-top:22px;">
+                    <input name="submit2" type="submit" value="Buscar" class="myButton" />
+                    @*<button type="button" class="myButton" onclick="location.href='@Url.Action("", "")'">Buscar</button>*@
+                </div>
+            </li>
+            <li class="columna" style="clear:both">
+                <label for="IdArea">Área Solicitante</label>
+                <div>
+                    @Html.DropDownListFor(model => model.SolicitudAsignacion.IdArea,
+                        new SelectList(Model.ListaAreas, "IdArea", "Nombre"),
+                        "- Seleccionar -", new { onchange = @" var form = document.forms[0]; form.submit();" })
+                </div>
+            </li>
+            <li class="columna">
+                <label for="IdUsuarioTrabajador">Solicitante</label>
+                <div>
+                    @Html.DropDownListFor(model => model.SolicitudAsignacion.IdUsuarioTrabajador,
+                           new SelectList(Model.ListaTrabajadores, "IdUsuarioTrabajador", "NombreCompleto"),
+                           "- Seleccionar -")
+                </div>
+            </li>
+            @*</ul>
+                    </div>
+                }
+                @using (Html.BeginForm())
+                {
+                    <div>
+                        <ul class="form">*@
+            <li style="clear:both; padding-top:8px;">
+                <label>Asignar bienes</label>
+                <ul class="form">
+                    <li class="columna33">
+                        <label for="Cantidad">Cantidad</label>
+                        <div>
+                            @Html.EditorFor(model => model.AsignacionBienMueble.Cantidad, new { htmlAttributes = new { @style = "width:100%" } })
+                            @Html.ValidationMessageFor(model => model.AsignacionBienMueble.Cantidad, "", new { @class = "text-danger" })
+                            @*<input type="number" id="txtCantidad" style="width: 100%" />*@
+                        </div>
+                    </li>
+                    <li class="columna33">
+                        <label for="txtEjemplo">Bien</label>
+                        <div>
+                            @Html.DropDownListFor(model => model.AsignacionBienMueble.IdBienMueble,
+                            new SelectList(Model.ListaBienes, "IdBienMueble", "Nombre"),
+                        "- Seleccionar -")
+                        </div>
+                    </li>
+                    <li class="columna33">
+                        <label for="IdUsuarioTrabajador">Responsable</label>
+                        <div>
+                            @Html.DropDownListFor(model => model.AsignacionBienMueble.IdUsuarioTrabajador,
+                           new SelectList(Model.ListaTrabajadores, "IdUsuarioTrabajador", "NombreCompleto"),
+                                      "- Seleccionar -")
+                        </div>
+                    </li>
+                    <li style="clear:both">
+                        <div style="text-align:right">
+                            <input name="submit2" type="submit" value="Agregar" class="myButton" />
+                            @*<button type="button" class="myButton" onclick="location.href='@Url.Action("Agregar", "SolicitudAsignacionBien")'">Agregar</button>*@
+                        </div>
+                    </li>
+                    <li style="clear:both">
+                        <table class="grid" style="width: 100%">
+                            <tr>
+                                <th class="gridHeader">
+                                    Cantidad
+                                </th>
+                                <th class="gridHeader">
+                                    Bien
+                                </th>
+                                <th class="gridHeader">
+                                    Eliminar
+                                </th>
+                            </tr>
+                            @if (Model.SolicitudAsignacion.AsignacionBienMueble.Count > 0)
+                            {
+                                foreach (var item in Model.SolicitudAsignacion.AsignacionBienMueble)
+                                {
+                                    @Html.Partial("_RowAsignacionBien", item)
+                                }
+                            }
+                        </table>
+                    </li>
+                    <li style="clear:both">
+                        <div style="text-align:right">
+                            <input name="action:Guardar" type="submit" value="Guardar" class="myButton" onclick="return confirm('¿Está seguro que desea guardar los cambios?');" />
+                            @*<button type="button" class="myButton" onclick="location.href='@Url.Action("", "")'" />*@
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li style="clear:both; padding-top:8px;">
+                <label>Lista de Solicitudes</label>
+                <ul class="form">
+                    <li style="clear:both">
+                        <table class="grid" style="width: 100%">
+                            <tr>
+                                <th class="gridHeader">
+                                    Nro. Solicitud
+                                </th>
+                                <th class="gridHeader">
+                                    Fecha Registro
+                                </th>
+                                <th class="gridHeader">
+                                    Estado
+                                </th>
+                                <th class="gridHeader">
+                                    Acciones
+                                </th>
+                            </tr>
+                            @foreach (var item in Model.ListaSolicitudes)
+                            {
+                                <tr>
+                                    <td class="gridColumn">
+                                        @item.NroSolicitudAsignacion
+                                    </td>
+                                    <td class="gridColumn">
+                                        @item.FechaRegistro.ToString("dd/MM/yyyy HH:mm:ss")
+                                    </td>
+                                    <td class="gridColumn">
+                                        @item.Estado.Descripcion
+                                    </td>
+                                    <td class="gridColumnEdit">
+                                        @if (item.IdEstado != 6)
+                                        {
+                                            @Html.ActionLink("Modificar", "Index", new { id = item.NroSolicitudAsignacion })
+                                            @Html.ActionLink("Anular", "Anular", new { id = item.IdSolicitudAsignacion },
+                                                 new { onclick = "return confirm('¿Está seguro que desea anular la solicitud?');" })
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    @Html.HiddenFor(model => model.SolicitudAsignacion.IdSolicitudAsignacion)
+}
+
+@section scripts {
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // Texto de subtitulo
+            $('#titlebar').text('Solicitud de Asignación de Bienes');
+
+
+        });
+    </script>
+}

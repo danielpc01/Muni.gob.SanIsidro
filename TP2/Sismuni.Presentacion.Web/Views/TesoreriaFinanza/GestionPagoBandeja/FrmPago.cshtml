@@ -1,0 +1,180 @@
+﻿@model Sismuni.Presentacion.Web.Models.TesoreriaFinanza.GestionPago.GestionPagoViewModel
+
+@{
+    ViewBag.Titulo =  "Gestión de Solicitud de Pagos";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+    <div>
+
+@using (Html.BeginForm())
+                {
+        <ul class="form">
+            <li class="columna33">
+                <label for="NroSolicitudAsignacion">Nro. Solicitud de Pago</label>
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.NumSolicitudPago, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.NumSolicitudPago, new { name = "NumSolicitudPago", id = "NumSolicitudPago" })
+                </div>
+                <label for="NroSolicitudAsignacion">Fecha Solicitud</label>FechaRecibo
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.FechaCorta, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "250", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.FechaCorta, new { name = "FechaCorta", id = "FechaCorta" })
+                </div>
+                <label for="NroSolicitudAsignacion">Hora Solicitud</label>
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.Hora, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.Hora, new { name = "Hora", id = "Hora" })
+                </div>
+                <label for="NroSolicitudAsignacion">Código Contribuyente</label>
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.CodContribuyente, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.CodContribuyente, new { name = "CodContribuyente", id = "CodContribuyente" })
+                </div>
+                <label for="NroSolicitudAsignacion">Contribuyente</label>
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.NombContribuyente, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 1, @cols = 77, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.NombContribuyente, new { name = "NombContribuyente", id = "NombContribuyente" })
+                </div>
+                <label for="NroSolicitudAsignacion">Concepto</label>
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.DescConceptoPago, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "10", @rows = 1, @cols = 50, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.DescConceptoPago, new { name = "DescConceptoPago", id = "DescConceptoPago" })
+                </div>
+                <label for="NroSolicitudAsignacion">Moneda</label>
+                <div>
+                    @Html.DropDownListFor(m => m.SolicitudPagoServicio.CodMoneda, Model.ListaMonedas, new { @class = "form-control", @style = "width: 90%",@onchange="javascript:cargarTipoCambio();" })
+                </div>
+                <label for="NroSolicitudAsignacion">Tipo de Cambio</label>
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.MontoTipoCambio, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "10", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.CodTipoCambio, new { name="CodTipoCambio", id="CodTipoCambio"})
+                </div>
+                <label for="NroSolicitudAsignacion">Forma de Pago</label>
+                <div>
+                    @Html.DropDownListFor(m => m.SolicitudPagoServicio.CodForPago, Model.ListaFormaPago, new { @class = "form-control", @style = "width: 60%" })
+                </div>
+                <label for="NroSolicitudAsignacion">Monto</label>
+                <div>
+                    @Html.TextBoxFor(m => m.SolicitudPagoServicio.Monto, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "10", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled = "disabled" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.Monto, new { name = "Monto", id = "Monto" })
+                    @Html.HiddenFor(m => m.SolicitudPagoServicio.Monto, new { name = "MontoOriginal", id = "MontoOriginal" })
+                </div>
+                <label for="NroSolicitudAsignacion"></label>
+                <div >
+                    <input name="submit1" type="submit" value="Pagar" class="myButton" onclick="javascript: return validar();" />
+                    <input name="submit2" type="submit" value="Anular" class="myButton" />
+                    <input name="submit3" id="submit3" type="submit" value="Cancelar" class="myButton" />                   
+                </div>
+            </li>
+
+            </ul>
+               @*@Html.HiddenFor(m => m.reciboProvisional.NumeroRecibo, new { name="NumeroRecibo", id="NumeroRecibo"})*@
+}
+
+<script>
+    var tipoTransaccion = '@Html.Raw(Model.tipoTransaccion)';
+    if (tipoTransaccion != null && tipoTransaccion!='') {
+        var message = "";
+        if (tipoTransaccion == '1') {
+            message = "Pago realizado exitosamente";
+        } else if(tipoTransaccion == '2'){
+            message = "Solicitud de pago Anulada";
+        }
+        alert(message);
+        document.getElementById('submit3').click();
+    }
+
+    //function mostrarCampoRechazo(){
+    //    var e = document.getElementById("reciboProvisional.estado");
+    //    var strValor = e.options[e.selectedIndex].value;
+
+    //    if (strValor == "0001005") {
+    //        document.getElementById('pnlRechazo').style.display = "block";
+    //    } else {
+    //        document.getElementById('pnlRechazo').style.display = "none";
+    //    }
+    //}
+
+    function validar() {
+        var e = document.getElementById("SolicitudPagoServicio_CodMoneda");
+        var strValor = e.options[e.selectedIndex].value;
+
+        var e2 = document.getElementById("SolicitudPagoServicio_CodForPago");
+        var strValor2 = e2.options[e2.selectedIndex].value;
+
+        if (strValor == "-1") {
+            alert("Debe seleccionar el tipo de moneda");
+            return false;
+        } else {
+            if (strValor2 == "-1") {
+                alert("Debe seleccionar la forma de pago");
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+        }
+    function cargarTipoCambio() {
+        var e = document.getElementById("SolicitudPagoServicio_CodMoneda");
+        var strValor = e.options[e.selectedIndex].value;
+        var dataJson=JSON.stringify(strValor);
+        var monOrig = document.getElementById('MontoOriginal').value;
+        console.log(strValor);
+        console.log(dataJson);
+
+        try {
+            /*$.ajax({
+                url: "/GestionPagoBandeja/GetTipoCambio/",
+                data: { "CodMoneda": strValor },
+                type: "GET",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (errorData) { }
+
+            });*/
+
+
+            $.ajax({
+                type: 'POST',
+                url: "/GestionPagoBandeja/GetTipoCambio/",
+                data: {
+                    CodMoneda: strValor,
+                    monto: monOrig
+                }
+            }).done(function (response) {
+                console.log(response);
+                if (response.CodResponse == "1") {
+                    document.getElementById('SolicitudPagoServicio_MontoTipoCambio').value = response.Body.Monto;
+                    document.getElementById('CodTipoCambio').value = response.Body.Codigo;
+                    document.getElementById('Monto').value = response.MontoCalculado;
+                    document.getElementById('SolicitudPagoServicio_Monto').value = response.MontoCalculado;
+                    
+                } else {
+                    document.getElementById('SolicitudPagoServicio_MontoTipoCambio').value = null;
+                    document.getElementById('CodTipoCambio').value = '';
+                    document.getElementById('Monto').value = monOrig;
+                    document.getElementById('SolicitudPagoServicio_Monto').value = monOrig;
+
+
+                    
+
+                }
+                
+
+            });
+
+        } catch (e) {
+            console.log(e);
+        }
+
+
+    }
+</script>
+</div>
+
+

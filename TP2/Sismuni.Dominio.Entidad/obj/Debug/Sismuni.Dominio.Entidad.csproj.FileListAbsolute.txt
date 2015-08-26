@@ -1,0 +1,5 @@
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Entidad\bin\Debug\Sismuni.Dominio.Entidad.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Entidad\bin\Debug\Sismuni.Dominio.Entidad.pdb
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Entidad\obj\Debug\Sismuni.Dominio.Entidad.csprojResolveAssemblyReference.cache
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Entidad\obj\Debug\Sismuni.Dominio.Entidad.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Entidad\obj\Debug\Sismuni.Dominio.Entidad.pdb

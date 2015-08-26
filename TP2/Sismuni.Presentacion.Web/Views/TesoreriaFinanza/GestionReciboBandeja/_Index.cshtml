@@ -1,0 +1,211 @@
+﻿@using Sismuni.Presentacion.Web.Resources;
+@using Sismuni.Presentacion.Web.Helpers.Html
+@using System.ComponentModel;
+@using Sismuni.Presentacion.Web.Helpers;
+
+<link href="~/Resources/Template/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Resources/Template/css/datepicker/datepicker3.css" rel="stylesheet" />
+
+<script src="~/Resources/Template/js/jquery.min.js"></script>
+<script src="~/Resources/Template/js/bootstrap.min.js"></script>
+<script src="~/Resources/Template/js/plugins/bootstrap-typeahead/bootstrap-typeahead.min.js"></script>
+<script src="~/Resources/Template/js/plugins/bootstrap-typeahead/bootstrap-typeahead.js"></script>
+
+
+
+
+<script src="~/Resources/Template/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="~/Resources/Template/js/plugins/datepicker/locales/bootstrap-datepicker.es.js"></script>
+
+
+<link href="~/Resources/Template/css/NewTransparencia.css" rel="stylesheet" />
+
+
+
+@model Sismuni.Presentacion.Web.Models.TesoreriaFinanza.GestionRecibo.GestionReciboViewModel
+
+@{
+    ViewBag.Titulo =  "Gestión de Recibo Provisional";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+
+@using (Html.BeginSecureForm("Buscar", "GestionReciboBandeja", FormMethod.Get, new { @class = "form-horizontal", role = "form", id = "formRecibo" }))
+{
+    <fieldset>
+        <legend class="text-muted h5">Bandeja de Recibo Provisional de Gasto</legend>
+
+
+        <div class="form-group">
+           
+            <label class = "col-sm-2 control-label">Nro. Recibo</label>
+            <div class="col-sm-4">
+                @Html.TextBoxFor(m => m.FiltroBusqueda.NumeroRecibo, new { @class = "form-control" })
+               <!-- <input type="text" id="txtNroRecibo" style="width: 20%" class="form-control"/>-->
+            </div>
+            
+            <label class = "col-sm-2 control-label">Empleado </label>
+                 
+            <div class="col-sm-4">
+		<div class="input-group">
+         <input id="FiltroBusqueda_DescEmpleadoAux" class="col-md-12 form-control" autocomplete="off" placeholder="Buscar empleado..."/>
+
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" onclick="javascript:borrarBusquedaEmpl();">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </span>
+        </div>
+
+
+                                   
+         <!-- @Html.TextBoxFor(m => m.FiltroBusqueda.DescEmpleado, new { @class = "col-md-12 form-control",@autocomplete="off",@placeholder="Buscar empleado..." })
+                -->          
+            <div id="datosEmpleado"></div>
+            
+             <!--   <input id="demo1" type="text" class="col-md-12 form-control" placeholder="Search cities..." autocomplete="off" />
+              <input type="text" id="txtEmpleado" style="width: 40%" class="form-control" /> -->
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+             <label class = "col-sm-2 control-label">Estado </label>
+             @Html.DropDownListFor(m => m.FiltroBusqueda.CodEstado,Model.ListaEstados, new { @class = "form-control",@style="width: 20%" })
+        </div>
+        
+        <div class="form-group">
+            <label class = "col-sm-2 control-label">Fecha Inicio: </label>
+            <div class="col-sm-4">
+                @Html.TextBox("FiltroBusqueda.FechaInicio",
+                                Model.FiltroBusqueda.FechaInicio == null ? string.Empty : Model.FiltroBusqueda.FechaInicio.Value.ToString(Formatos.FechaCorta),
+                                new { @class = "form-control sigen-fecha-corta", @placeholder = "Fecha Inicio" })
+            </div>
+
+           <label class = "col-sm-2 control-label">Fecha Fin: </label>
+
+            <div class="col-sm-4">
+               @Html.TextBox("FiltroBusqueda.FechaFin",
+                                Model.FiltroBusqueda.FechaFin == null ? string.Empty : Model.FiltroBusqueda.FechaFin.Value.ToString(Formatos.FechaCorta),
+                                new { @class = "form-control sigen-fecha-corta", @placeholder = "Fecha Inicio" })
+
+            </div>
+
+        </div>
+    
+<input name="submit2" type="submit" value="Buscar" class="myButton" />
+
+@Html.HiddenFor(m => m.FiltroBusqueda.CodEmpleado, new { name="CodEmpleado", id="CodEmpleado"})
+@Html.HiddenFor(m => m.FiltroBusqueda.DescEmpleado, new { name="DescEmpleado", id="DescEmpleado"})
+
+
+    </fieldset>
+
+
+
+
+    <div>
+
+
+        <ul class="form">
+            <li>
+                <div style="text-align:left; margin-top:22px;">
+                    <table class="grid" style="width: 100%">
+                            <tr>
+                                <th class="gridHeader">
+                                    Nro. Recibo
+                                </th>
+                                <th class="gridHeader">
+                                    Fecha
+                                </th>
+                                <th class="gridHeader">
+                                    Concepto
+                                </th>
+                                <th class="gridHeader">
+                                    Monto
+                                </th>
+                                <th class="gridHeader">
+                                    Estado
+                                </th>
+                            </tr>
+                            @foreach (var item in Model.ListaSolicitudes)
+                            {
+                                <tr>
+                                    <td class="gridColumn">
+                                        @if (item.Estado == "Pendiente")
+                                        {
+                                            @Html.ActionLink("" + item.NumeroRecibo, "Calificar", new { id = item.NumeroRecibo })
+                                        }else{
+                                            @item.NumeroRecibo
+                                        }
+                                    </td>
+                                   <td class="gridColumn">
+                                        @item.FechaRecibo
+                                    </td>
+                                    <td class="gridColumn">
+                                        @item.Concepto
+                                    </td>
+                                    <td class="gridColumn">
+                                        @item.Monto
+                                    </td>
+                                    <td class="gridColumn">
+                                        @item.Estado
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                </div>
+            </li>
+            </ul>
+</div>
+}
+
+<script type="text/javascript" charset="utf-8">
+
+    var listaTrabajadores = @Html.Raw(Json.Encode(Model.ListaTrabajadores));
+    var filtroCodEmp='@Html.Raw(Model.FiltroBusqueda.CodEmpleado)';
+    var filtroDescEmp='@Html.Raw(Model.FiltroBusqueda.DescEmpleado)';
+    var empleados = [];
+
+    for (var k in listaTrabajadores) {
+       // console.log(k, listaTrabajadores[k]);
+        empleados.push({
+            "id":listaTrabajadores[k].IdUsuarioTrabajador,
+            "name":listaTrabajadores[k].NombreCompleto
+        });
+    }
+
+    if((filtroCodEmp!=null && filtroCodEmp>0) && (filtroDescEmp!=null && filtroDescEmp!="")){
+        $('#datosEmpleado').show().html('<strong>' + filtroCodEmp + '</strong>- <strong>' + filtroDescEmp + '</strong>');
+    }
+
+
+    $(document).ready(function () {
+        $('#FiltroBusqueda_FechaInicio').datepicker({ language: 'es', format: 'yyyy-mm-dd', autoclose: true });
+        $('#FiltroBusqueda_FechaFin').datepicker({ language: 'es', format: 'yyyy-mm-dd', autoclose: true });
+    });
+
+    $(function () {
+        
+        function displayResult(item) {
+            $('#datosEmpleado').show().html('<strong>' + item.value + '</strong>- <strong>' + item.text + '</strong>');
+            document.getElementById("CodEmpleado").value=item.value;
+            document.getElementById("DescEmpleado").value=item.text;
+
+        }
+        $('#FiltroBusqueda_DescEmpleadoAux').typeahead({
+            source: empleados,
+            onSelect: displayResult
+        });
+    });
+
+    function borrarBusquedaEmpl(){
+        $("#datosEmpleado").empty();
+        document.getElementById("CodEmpleado").value=0;
+        document.getElementById("DescEmpleado").value='';
+        document.getElementById("FiltroBusqueda_DescEmpleadoAux").value='';
+
+    }
+
+</script>

@@ -1,0 +1,13 @@
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\Sismuni.Dominio.Servicio.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\Sismuni.Dominio.Servicio.pdb
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\Sismuni.Dominio.Entidad.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\Sismuni.Infraestructura.Data.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\EntityFramework.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\Sismuni.Dominio.Entidad.pdb
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\Sismuni.Infraestructura.Data.pdb
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\bin\Debug\EntityFramework.xml
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\obj\Debug\Sismuni.Dominio.Negocio.csprojResolveAssemblyReference.cache
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\obj\Debug\Sismuni.Dominio.Servicio.Recursos.GrupoTabla.resources
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\obj\Debug\Sismuni.Dominio.Negocio.csproj.GenerateResource.Cache
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\obj\Debug\Sismuni.Dominio.Servicio.dll
+E:\AreaTrabajo\TP2\PruebaConcepto\Muni.gob.SanIsidro\TP2\Sismuni.Dominio.Servicio\obj\Debug\Sismuni.Dominio.Servicio.pdb

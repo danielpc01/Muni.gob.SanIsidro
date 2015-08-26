@@ -1,0 +1,89 @@
+﻿@model Sismuni.Presentacion.Web.Models.TesoreriaFinanza.GestionRecibo.GestionReciboViewModel
+
+@{
+    ViewBag.Titulo =  "Gestión de Recibo Provisional";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+    <div>
+
+@using (Html.BeginForm())
+                {
+        <ul class="form">
+            <li class="columna33">
+                <label for="NroSolicitudAsignacion">Nro. Recibo</label>
+                <div>
+                    @Html.TextBoxFor(m => m.reciboProvisional.NumeroRecibo, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled="disabled"})
+                </div>
+                <label for="NroSolicitudAsignacion">Fecha Envío </label>FechaRecibo
+                <div>
+                    @Html.TextBoxFor(m => m.reciboProvisional.FechaRecibo, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "250", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled="disabled"})
+                </div>
+                <label for="NroSolicitudAsignacion">Concepto Gasto</label>
+                <div>
+                    @Html.TextAreaFor(m => m.reciboProvisional.Concepto, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 3, @cols = 77, @style = "margin-right:-10px", disabled="disabled"})
+                </div>
+                <label for="NroSolicitudAsignacion">Motivo</label>
+                <div>
+                    @Html.TextAreaFor(m => m.reciboProvisional.Motivo, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 3, @cols = 77, @style = "margin-right:-10px", disabled="disabled"})
+                </div>
+                <label for="NroSolicitudAsignacion">Monto</label>
+                <div>
+                    @Html.TextBoxFor(m => m.reciboProvisional.Monto, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "10", @rows = 1, @cols = 10, @style = "margin-right:-10px", disabled="disabled"})
+                </div>
+                <label for="NroSolicitudAsignacion">Estado de Calificación</label>
+                @Html.DropDownListFor(m => m.reciboProvisional.CodEstado,Model.ListaEstados, new { @class = "form-control",@style="width: 60%",@onchange="javascript:mostrarCampoRechazo();" })
+
+                <!--<div>
+                    <select name="reciboProvisional.estado" id="reciboProvisional.estado" onchange="javascript:mostrarCampoRechazo();">
+                        <option id="-1" value="-1">Seleccionar</option>
+                        <option id="0001004" value="0001004">Aprobado</option>
+                        <option id="0001005" value="0001005">Rechazado</option>
+                    </select>
+                </div>-->
+
+                <div id="pnlRechazo" style="display:none;">
+                    <label for="NroSolicitudAsignacion">Motivo Rechazo</label>
+                        @Html.TextAreaFor(m => m.reciboProvisional.MotivoRechazo, new { @class = "input-sm inputa-lign", @placeholder = "", @maxlength = "200", @rows = 3, @cols = 77, @style = "margin-right:-10px", name="motivoRechazo", id="motivoRechazo"})
+                </div>
+                <label for="NroSolicitudAsignacion"></label>
+                <div >
+                    <input name="submit1" type="submit" value="Grabar" class="myButton" onclick="javascript: return validar();" />
+                    <input name="submit2" type="submit" value="Cancelar" class="myButton" />                       
+                </div>
+            </li>
+
+            </ul>
+               @Html.HiddenFor(m => m.reciboProvisional.NumeroRecibo, new { name="NumeroRecibo", id="NumeroRecibo"})
+}
+
+<script>
+
+    function mostrarCampoRechazo(){
+        var e = document.getElementById("reciboProvisional_CodEstado");
+        var strValor = e.options[e.selectedIndex].value;
+
+        if (strValor == "0006002") {
+            document.getElementById('pnlRechazo').style.display = "block";
+        } else {
+            document.getElementById('pnlRechazo').style.display = "none";
+        }
+    }
+
+    function validar() {
+        var e = document.getElementById("reciboProvisional_CodEstado");
+        var strValor = e.options[e.selectedIndex].value;
+
+        if (strValor == "-1") {
+            alert("Debe seleccionar el Estado del Recibo Provisional");
+            return false;
+        } else {
+            return true;
+        }
+        
+        }
+    
+</script>
+</div>
+
+

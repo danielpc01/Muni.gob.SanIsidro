@@ -1,0 +1,1854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UPC_MUNIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AsignacionBienMueble">
+          <Key>
+            <PropertyRef Name="IdAsignacion" />
+          </Key>
+          <Property Name="IdAsignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSolicitudAsignacion" Type="int" Nullable="false" />
+          <Property Name="IdUsuarioTrabajador" Type="int" Nullable="false" />
+          <Property Name="IdBienMueble" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="FechaAsignacion" Type="datetime" Nullable="false" />
+          <Property Name="UsuRegistro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="UsuModifica" Type="varchar" MaxLength="15" />
+          <Property Name="FechaModifica" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BienMueble">
+          <Key>
+            <PropertyRef Name="IdBienMueble" />
+          </Key>
+          <Property Name="IdBienMueble" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UsuRegistro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="UsuModifica" Type="varchar" MaxLength="15" />
+          <Property Name="FechaModifica" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="UsuRegistro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="UsuModifica" Type="varchar" MaxLength="15" />
+          <Property Name="FechaModifica" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SolicitudAsignacionBienMueble">
+          <Key>
+            <PropertyRef Name="IdSolicitudAsignacion" />
+          </Key>
+          <Property Name="IdSolicitudAsignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="IdArea" Type="int" Nullable="false" />
+          <Property Name="NroSolicitudAsignacion" Type="int" Nullable="false" />
+          <Property Name="FechaSolicitudAsignacion" Type="datetime" Nullable="false" />
+          <Property Name="IdUsuarioTrabajador" Type="int" Nullable="false" />
+          <Property Name="UsuRegistro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="UsuModifica" Type="varchar" MaxLength="15" />
+          <Property Name="FechaModifica" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UsuarioTrabajador">
+          <Key>
+            <PropertyRef Name="IdUsuarioTrabajador" />
+          </Key>
+          <Property Name="IdUsuarioTrabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdArea" Type="int" Nullable="false" />
+          <Property Name="IdCargo" Type="int" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ApePaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ApeMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="IdDocumento" Type="int" Nullable="false" />
+          <Property Name="NroDocumento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+          <Property Name="FechaCese" Type="datetime" />
+          <Property Name="UsuRegistro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="UsuModifica" Type="varchar" MaxLength="15" />
+          <Property Name="FechaModifica" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="IdArea" />
+          </Key>
+          <Property Name="IdArea" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="UsuRegistro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="UsuModifica" Type="varchar" MaxLength="15" />
+          <Property Name="FechaModifica" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="UsuRegistro" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="UsuModifica" Type="varchar" MaxLength="15" />
+          <Property Name="FechaModifica" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GrupoTabla">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="NombreGrupo" Type="varchar" MaxLength="100" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Multitabla">
+          <Key>
+            <PropertyRef Name="IdMultitabla" />
+          </Key>
+          <Property Name="IdMultitabla" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="IdGrupo" Type="varchar" MaxLength="4" />
+          <Property Name="NombreValor" Type="varchar" MaxLength="150" />
+          <Property Name="DescripcionLarga" Type="varchar" MaxLength="100" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="ConceptoPago">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ConceptoRecibo">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Contribuyente">
+          <Key>
+            <PropertyRef Name="CodContribuyente" />
+          </Key>
+          <Property Name="CodContribuyente" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" />
+          <Property Name="CodTipoDocumento" Type="varchar" MaxLength="7" />
+          <Property Name="NumDocumento" Type="varchar" MaxLength="20" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" />
+          <Property Name="TelefonoFijo" Type="varchar" MaxLength="20" />
+          <Property Name="TelefonoMovil" Type="varchar" MaxLength="20" />
+          <Property Name="FechaCreacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FormaPago">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MovimientoCajaChica">
+          <Key>
+            <PropertyRef Name="CodigoMovimiento" />
+          </Key>
+          <Property Name="CodigoMovimiento" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaActualizacion" Type="datetime" />
+          <Property Name="MontoMovimiento" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="CodTipoMovimiento" Type="varchar" MaxLength="7" />
+          <Property Name="CodOrigenMovimiento" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="PagoServicio">
+          <Key>
+            <PropertyRef Name="NumeroPago" />
+          </Key>
+          <Property Name="NumeroPago" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumSolicitudPago" Type="bigint" />
+          <Property Name="CodFormaPago" Type="bigint" />
+          <Property Name="CodTipoCambio" Type="bigint" />
+          <Property Name="CodMonedaPago" Type="varchar" MaxLength="7" />
+          <Property Name="MontoPago" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="FechaPago" Type="datetime" />
+          <Property Name="CodEstadoPago" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="ReciboProvisional">
+          <Key>
+            <PropertyRef Name="NumeroRecibo" />
+          </Key>
+          <Property Name="NumeroRecibo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodConceptoRecibo" Type="bigint" />
+          <Property Name="Motivo" Type="varchar" MaxLength="200" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaEnvio" Type="datetime" />
+          <Property Name="CodEstado" Type="varchar" MaxLength="7" />
+          <Property Name="CodTrabajador" Type="int" />
+          <Property Name="MotivoRechazo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SolicitudPagoServicio">
+          <Key>
+            <PropertyRef Name="NumSolicitudPago" />
+          </Key>
+          <Property Name="NumSolicitudPago" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodContribuyente" Type="bigint" />
+          <Property Name="FechaSolicitud" Type="datetime" />
+          <Property Name="CodConceptoPago" Type="bigint" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="Motivo" Type="varchar" MaxLength="200" />
+          <Property Name="CodEstadoSolicitud" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="TipoCambio">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodMoneda" Type="varchar" MaxLength="7" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Monto" Type="decimal" Precision="8" Scale="4" />
+        </EntityType>
+        <EntityType Name="Expediente">
+          <Key>
+            <PropertyRef Name="NumeroExpediente" />
+          </Key>
+          <Property Name="NumeroExpediente" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaExpediente" Type="datetime" />
+          <Property Name="NumeroSolicitud" Type="bigint" />
+          <Property Name="Tipo_Expediente" Type="varchar" MaxLength="7" />
+          <Property Name="Asunto" Type="varchar" MaxLength="400" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="SolicitudInformacionMunicipal">
+          <Key>
+            <PropertyRef Name="NumeroSolicitud" />
+          </Key>
+          <Property Name="NumeroSolicitud" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="datetime" />
+          <Property Name="NombresSolicitante" Type="varchar" MaxLength="100" />
+          <Property Name="ApellidoPaternoSolicitante" Type="varchar" MaxLength="100" />
+          <Property Name="ApellidoMaternoSolicitante" Type="varchar" MaxLength="100" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="7" />
+          <Property Name="NumeroDocumento" Type="varchar" MaxLength="30" />
+          <Property Name="Direccion" Type="varchar" MaxLength="70" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" />
+          <Property Name="Celular" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="60" />
+          <Property Name="Modo_Envio" Type="varchar" MaxLength="40" />
+          <Property Name="IdUsuarioTrabajador" Type="int" />
+          <Property Name="Tipo_Informacion" Type="varchar" MaxLength="7" />
+          <Property Name="Motivo_Solicitud" Type="varchar" MaxLength="150" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="300" />
+          <Property Name="Estado" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <Association Name="FK__Asignacio__IdBie__30F848ED">
+          <End Role="BienMueble" Type="Self.BienMueble" Multiplicity="1" />
+          <End Role="AsignacionBienMueble" Type="Self.AsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BienMueble">
+              <PropertyRef Name="IdBienMueble" />
+            </Principal>
+            <Dependent Role="AsignacionBienMueble">
+              <PropertyRef Name="IdBienMueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Asignacio__IdSol__31EC6D26">
+          <End Role="SolicitudAsignacionBienMueble" Type="Self.SolicitudAsignacionBienMueble" Multiplicity="1" />
+          <End Role="AsignacionBienMueble" Type="Self.AsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudAsignacionBienMueble">
+              <PropertyRef Name="IdSolicitudAsignacion" />
+            </Principal>
+            <Dependent Role="AsignacionBienMueble">
+              <PropertyRef Name="IdSolicitudAsignacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Asignacio__IdUsu__300424B4">
+          <End Role="UsuarioTrabajador" Type="Self.UsuarioTrabajador" Multiplicity="1" />
+          <End Role="AsignacionBienMueble" Type="Self.AsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioTrabajador">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Principal>
+            <Dependent Role="AsignacionBienMueble">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BienMuebl__IdEst__1ED998B2">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="BienMueble" Type="Self.BienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="BienMueble">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contribuy__CodTi__534D60F1">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="Contribuyente" Type="Self.Contribuyente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="Contribuyente">
+              <PropertyRef Name="CodTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expedient__Numer__6E01572D">
+          <End Role="SolicitudInformacionMunicipal" Type="Self.SolicitudInformacionMunicipal" Multiplicity="0..1" />
+          <End Role="Expediente" Type="Self.Expediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="NumeroSolicitud" />
+            </Principal>
+            <Dependent Role="Expediente">
+              <PropertyRef Name="NumeroSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expedient__Tipo___6EF57B66">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="Expediente" Type="Self.Expediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="Expediente">
+              <PropertyRef Name="Tipo_Expediente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movimient__CodOr__4222D4EF">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="MovimientoCajaChica" Type="Self.MovimientoCajaChica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="MovimientoCajaChica">
+              <PropertyRef Name="CodOrigenMovimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movimient__CodTi__412EB0B6">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="MovimientoCajaChica" Type="Self.MovimientoCajaChica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="MovimientoCajaChica">
+              <PropertyRef Name="CodTipoMovimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Multitabl__IdGru__0EA330E9">
+          <End Role="GrupoTabla" Type="Self.GrupoTabla" Multiplicity="0..1" />
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupoTabla">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Multitabla">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PagoServi__CodEs__628FA481">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="Self.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodEstadoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PagoServi__CodFo__5FB337D6">
+          <End Role="FormaPago" Type="Self.FormaPago" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="Self.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormaPago">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodFormaPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PagoServi__CodMo__619B8048">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="Self.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodMonedaPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PagoServi__CodTi__60A75C0F">
+          <End Role="TipoCambio" Type="Self.TipoCambio" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="Self.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCambio">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodTipoCambio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PagoServi__NumSo__5EBF139D">
+          <End Role="SolicitudPagoServicio" Type="Self.SolicitudPagoServicio" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="Self.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPagoServicio">
+              <PropertyRef Name="NumSolicitudPago" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="NumSolicitudPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReciboPro__CodCo__3A81B327">
+          <End Role="ConceptoRecibo" Type="Self.ConceptoRecibo" Multiplicity="0..1" />
+          <End Role="ReciboProvisional" Type="Self.ReciboProvisional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoRecibo">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ReciboProvisional">
+              <PropertyRef Name="CodConceptoRecibo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReciboPro__CodEs__3B75D760">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="ReciboProvisional" Type="Self.ReciboProvisional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="ReciboProvisional">
+              <PropertyRef Name="CodEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReciboPro__CodTr__3C69FB99">
+          <End Role="UsuarioTrabajador" Type="Self.UsuarioTrabajador" Multiplicity="0..1" />
+          <End Role="ReciboProvisional" Type="Self.ReciboProvisional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioTrabajador">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Principal>
+            <Dependent Role="ReciboProvisional">
+              <PropertyRef Name="CodTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__CodCo__5812160E">
+          <End Role="Contribuyente" Type="Self.Contribuyente" Multiplicity="0..1" />
+          <End Role="SolicitudPagoServicio" Type="Self.SolicitudPagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contribuyente">
+              <PropertyRef Name="CodContribuyente" />
+            </Principal>
+            <Dependent Role="SolicitudPagoServicio">
+              <PropertyRef Name="CodContribuyente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__CodCo__59063A47">
+          <End Role="ConceptoPago" Type="Self.ConceptoPago" Multiplicity="0..1" />
+          <End Role="SolicitudPagoServicio" Type="Self.SolicitudPagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoPago">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="SolicitudPagoServicio">
+              <PropertyRef Name="CodConceptoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__CodEs__59FA5E80">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="SolicitudPagoServicio" Type="Self.SolicitudPagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="SolicitudPagoServicio">
+              <PropertyRef Name="CodEstadoSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Estad__693CA210">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="SolicitudInformacionMunicipal" Type="Self.SolicitudInformacionMunicipal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__IdAre__2B3F6F97">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="SolicitudAsignacionBienMueble" Type="Self.SolicitudAsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="SolicitudAsignacionBienMueble">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__IdEst__2A4B4B5E">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="SolicitudAsignacionBienMueble" Type="Self.SolicitudAsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="SolicitudAsignacionBienMueble">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__IdUsu__68487DD7">
+          <End Role="UsuarioTrabajador" Type="Self.UsuarioTrabajador" Multiplicity="0..1" />
+          <End Role="SolicitudInformacionMunicipal" Type="Self.SolicitudInformacionMunicipal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioTrabajador">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Principal>
+            <Dependent Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__TipoD__6754599E">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="SolicitudInformacionMunicipal" Type="Self.SolicitudInformacionMunicipal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="TipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TipoCambi__CodMo__46E78A0C">
+          <End Role="Multitabla" Type="Self.Multitabla" Multiplicity="0..1" />
+          <End Role="TipoCambio" Type="Self.TipoCambio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="TipoCambio">
+              <PropertyRef Name="CodMoneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuarioTr__IdAre__239E4DCF">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="UsuarioTrabajador" Type="Self.UsuarioTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="UsuarioTrabajador">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuarioTr__IdCar__24927208">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="1" />
+          <End Role="UsuarioTrabajador" Type="Self.UsuarioTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="IdCargo" />
+            </Principal>
+            <Dependent Role="UsuarioTrabajador">
+              <PropertyRef Name="IdCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuarioTr__IdEst__25869641">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+          <End Role="UsuarioTrabajador" Type="Self.UsuarioTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="UsuarioTrabajador">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UPC_MUNIModelStoreContainer">
+          <EntitySet Name="AsignacionBienMueble" EntityType="Self.AsignacionBienMueble" Schema="ControlPatrimonial" store:Type="Tables" />
+          <EntitySet Name="BienMueble" EntityType="Self.BienMueble" Schema="ControlPatrimonial" store:Type="Tables" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="ControlPatrimonial" store:Type="Tables" />
+          <EntitySet Name="SolicitudAsignacionBienMueble" EntityType="Self.SolicitudAsignacionBienMueble" Schema="ControlPatrimonial" store:Type="Tables" />
+          <EntitySet Name="UsuarioTrabajador" EntityType="Self.UsuarioTrabajador" Schema="ControlPatrimonial" store:Type="Tables" />
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="General" store:Type="Tables" />
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="General" store:Type="Tables" />
+          <EntitySet Name="GrupoTabla" EntityType="Self.GrupoTabla" Schema="General" store:Type="Tables" />
+          <EntitySet Name="Multitabla" EntityType="Self.Multitabla" Schema="General" store:Type="Tables" />
+          <EntitySet Name="ConceptoPago" EntityType="Self.ConceptoPago" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="ConceptoRecibo" EntityType="Self.ConceptoRecibo" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="Contribuyente" EntityType="Self.Contribuyente" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="FormaPago" EntityType="Self.FormaPago" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="MovimientoCajaChica" EntityType="Self.MovimientoCajaChica" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="PagoServicio" EntityType="Self.PagoServicio" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="ReciboProvisional" EntityType="Self.ReciboProvisional" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="SolicitudPagoServicio" EntityType="Self.SolicitudPagoServicio" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="TipoCambio" EntityType="Self.TipoCambio" Schema="TesoreriaFinanzas" store:Type="Tables" />
+          <EntitySet Name="Expediente" EntityType="Self.Expediente" Schema="Transparencia" store:Type="Tables" />
+          <EntitySet Name="SolicitudInformacionMunicipal" EntityType="Self.SolicitudInformacionMunicipal" Schema="Transparencia" store:Type="Tables" />
+          <AssociationSet Name="FK__Asignacio__IdBie__30F848ED" Association="Self.FK__Asignacio__IdBie__30F848ED">
+            <End Role="BienMueble" EntitySet="BienMueble" />
+            <End Role="AsignacionBienMueble" EntitySet="AsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Asignacio__IdSol__31EC6D26" Association="Self.FK__Asignacio__IdSol__31EC6D26">
+            <End Role="SolicitudAsignacionBienMueble" EntitySet="SolicitudAsignacionBienMueble" />
+            <End Role="AsignacionBienMueble" EntitySet="AsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Asignacio__IdUsu__300424B4" Association="Self.FK__Asignacio__IdUsu__300424B4">
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+            <End Role="AsignacionBienMueble" EntitySet="AsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BienMuebl__IdEst__1ED998B2" Association="Self.FK__BienMuebl__IdEst__1ED998B2">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="BienMueble" EntitySet="BienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contribuy__CodTi__534D60F1" Association="Self.FK__Contribuy__CodTi__534D60F1">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="Contribuyente" EntitySet="Contribuyente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expedient__Numer__6E01572D" Association="Self.FK__Expedient__Numer__6E01572D">
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+            <End Role="Expediente" EntitySet="Expediente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expedient__Tipo___6EF57B66" Association="Self.FK__Expedient__Tipo___6EF57B66">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="Expediente" EntitySet="Expediente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movimient__CodOr__4222D4EF" Association="Self.FK__Movimient__CodOr__4222D4EF">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="MovimientoCajaChica" EntitySet="MovimientoCajaChica" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movimient__CodTi__412EB0B6" Association="Self.FK__Movimient__CodTi__412EB0B6">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="MovimientoCajaChica" EntitySet="MovimientoCajaChica" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Multitabl__IdGru__0EA330E9" Association="Self.FK__Multitabl__IdGru__0EA330E9">
+            <End Role="GrupoTabla" EntitySet="GrupoTabla" />
+            <End Role="Multitabla" EntitySet="Multitabla" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PagoServi__CodEs__628FA481" Association="Self.FK__PagoServi__CodEs__628FA481">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PagoServi__CodFo__5FB337D6" Association="Self.FK__PagoServi__CodFo__5FB337D6">
+            <End Role="FormaPago" EntitySet="FormaPago" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PagoServi__CodMo__619B8048" Association="Self.FK__PagoServi__CodMo__619B8048">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PagoServi__CodTi__60A75C0F" Association="Self.FK__PagoServi__CodTi__60A75C0F">
+            <End Role="TipoCambio" EntitySet="TipoCambio" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PagoServi__NumSo__5EBF139D" Association="Self.FK__PagoServi__NumSo__5EBF139D">
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReciboPro__CodCo__3A81B327" Association="Self.FK__ReciboPro__CodCo__3A81B327">
+            <End Role="ConceptoRecibo" EntitySet="ConceptoRecibo" />
+            <End Role="ReciboProvisional" EntitySet="ReciboProvisional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReciboPro__CodEs__3B75D760" Association="Self.FK__ReciboPro__CodEs__3B75D760">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="ReciboProvisional" EntitySet="ReciboProvisional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReciboPro__CodTr__3C69FB99" Association="Self.FK__ReciboPro__CodTr__3C69FB99">
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+            <End Role="ReciboProvisional" EntitySet="ReciboProvisional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__CodCo__5812160E" Association="Self.FK__Solicitud__CodCo__5812160E">
+            <End Role="Contribuyente" EntitySet="Contribuyente" />
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__CodCo__59063A47" Association="Self.FK__Solicitud__CodCo__59063A47">
+            <End Role="ConceptoPago" EntitySet="ConceptoPago" />
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__CodEs__59FA5E80" Association="Self.FK__Solicitud__CodEs__59FA5E80">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Estad__693CA210" Association="Self.FK__Solicitud__Estad__693CA210">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__IdAre__2B3F6F97" Association="Self.FK__Solicitud__IdAre__2B3F6F97">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="SolicitudAsignacionBienMueble" EntitySet="SolicitudAsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__IdEst__2A4B4B5E" Association="Self.FK__Solicitud__IdEst__2A4B4B5E">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="SolicitudAsignacionBienMueble" EntitySet="SolicitudAsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__IdUsu__68487DD7" Association="Self.FK__Solicitud__IdUsu__68487DD7">
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__TipoD__6754599E" Association="Self.FK__Solicitud__TipoD__6754599E">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TipoCambi__CodMo__46E78A0C" Association="Self.FK__TipoCambi__CodMo__46E78A0C">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="TipoCambio" EntitySet="TipoCambio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuarioTr__IdAre__239E4DCF" Association="Self.FK__UsuarioTr__IdAre__239E4DCF">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuarioTr__IdCar__24927208" Association="Self.FK__UsuarioTr__IdCar__24927208">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuarioTr__IdEst__25869641" Association="Self.FK__UsuarioTr__IdEst__25869641">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UPC_MUNIModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AsignacionBienMueble" EntityType="UPC_MUNIModel.AsignacionBienMueble" />
+          <EntitySet Name="BienMueble" EntityType="UPC_MUNIModel.BienMueble" />
+          <EntitySet Name="Estado" EntityType="UPC_MUNIModel.Estado" />
+          <EntitySet Name="SolicitudAsignacionBienMueble" EntityType="UPC_MUNIModel.SolicitudAsignacionBienMueble" />
+          <EntitySet Name="UsuarioTrabajador" EntityType="UPC_MUNIModel.UsuarioTrabajador" />
+          <EntitySet Name="Area" EntityType="UPC_MUNIModel.Area" />
+          <EntitySet Name="Cargo" EntityType="UPC_MUNIModel.Cargo" />
+          <EntitySet Name="GrupoTabla" EntityType="UPC_MUNIModel.GrupoTabla" />
+          <EntitySet Name="Multitabla" EntityType="UPC_MUNIModel.Multitabla" />
+          <EntitySet Name="ConceptoPago" EntityType="UPC_MUNIModel.ConceptoPago" />
+          <EntitySet Name="ConceptoRecibo" EntityType="UPC_MUNIModel.ConceptoRecibo" />
+          <EntitySet Name="Contribuyente" EntityType="UPC_MUNIModel.Contribuyente" />
+          <EntitySet Name="FormaPago" EntityType="UPC_MUNIModel.FormaPago" />
+          <EntitySet Name="MovimientoCajaChica" EntityType="UPC_MUNIModel.MovimientoCajaChica" />
+          <EntitySet Name="PagoServicio" EntityType="UPC_MUNIModel.PagoServicio" />
+          <EntitySet Name="ReciboProvisional" EntityType="UPC_MUNIModel.ReciboProvisional" />
+          <EntitySet Name="SolicitudPagoServicio" EntityType="UPC_MUNIModel.SolicitudPagoServicio" />
+          <EntitySet Name="TipoCambio" EntityType="UPC_MUNIModel.TipoCambio" />
+          <EntitySet Name="Expediente" EntityType="UPC_MUNIModel.Expediente" />
+          <EntitySet Name="SolicitudInformacionMunicipal" EntityType="UPC_MUNIModel.SolicitudInformacionMunicipal" />
+          <AssociationSet Name="FK__Asignacio__IdBie__276EDEB3" Association="UPC_MUNIModel.FK__Asignacio__IdBie__276EDEB3">
+            <End Role="BienMueble" EntitySet="BienMueble" />
+            <End Role="AsignacionBienMueble" EntitySet="AsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Asignacio__IdSol__286302EC" Association="UPC_MUNIModel.FK__Asignacio__IdSol__286302EC">
+            <End Role="SolicitudAsignacionBienMueble" EntitySet="SolicitudAsignacionBienMueble" />
+            <End Role="AsignacionBienMueble" EntitySet="AsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Asignacio__IdUsu__267ABA7A" Association="UPC_MUNIModel.FK__Asignacio__IdUsu__267ABA7A">
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+            <End Role="AsignacionBienMueble" EntitySet="AsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BienMuebl__IdEst__1B0907CE" Association="UPC_MUNIModel.FK__BienMuebl__IdEst__1B0907CE">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="BienMueble" EntitySet="BienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__IdEst__22AA2996" Association="UPC_MUNIModel.FK__Solicitud__IdEst__22AA2996">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="SolicitudAsignacionBienMueble" EntitySet="SolicitudAsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuarioTr__IdEst__1FCDBCEB" Association="UPC_MUNIModel.FK__UsuarioTr__IdEst__1FCDBCEB">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__IdAre__239E4DCF" Association="UPC_MUNIModel.FK__Solicitud__IdAre__239E4DCF">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="SolicitudAsignacionBienMueble" EntitySet="SolicitudAsignacionBienMueble" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReciboPro__CodTr__37A5467C" Association="UPC_MUNIModel.FK__ReciboPro__CodTr__37A5467C">
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+            <End Role="ReciboProvisional" EntitySet="ReciboProvisional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__IdUsu__2C3393D0" Association="UPC_MUNIModel.FK__Solicitud__IdUsu__2C3393D0">
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuarioTr__IdAre__1DE57479" Association="UPC_MUNIModel.FK__UsuarioTr__IdAre__1DE57479">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuarioTr__IdCar__1ED998B2" Association="UPC_MUNIModel.FK__UsuarioTr__IdCar__1ED998B2">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="UsuarioTrabajador" EntitySet="UsuarioTrabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Multitabl__IdGru__1273C1CD" Association="UPC_MUNIModel.FK__Multitabl__IdGru__1273C1CD">
+            <End Role="GrupoTabla" EntitySet="GrupoTabla" />
+            <End Role="Multitabla" EntitySet="Multitabla" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contribuy__CodTi__6477ECF3" Association="UPC_MUNIModel.FK__Contribuy__CodTi__6477ECF3">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="Contribuyente" EntitySet="Contribuyente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expedient__Tipo___30F848ED" Association="UPC_MUNIModel.FK__Expedient__Tipo___30F848ED">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="Expediente" EntitySet="Expediente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movimient__CodOr__3B75D760" Association="UPC_MUNIModel.FK__Movimient__CodOr__3B75D760">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="MovimientoCajaChica" EntitySet="MovimientoCajaChica" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movimient__CodTi__3A81B327" Association="UPC_MUNIModel.FK__Movimient__CodTi__3A81B327">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="MovimientoCajaChica" EntitySet="MovimientoCajaChica" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pago__CodEstadoP__6FE99F9F" Association="UPC_MUNIModel.FK__Pago__CodEstadoP__6FE99F9F">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pago__CodMonedaP__6EF57B66" Association="UPC_MUNIModel.FK__Pago__CodMonedaP__6EF57B66">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReciboPro__CodEs__36B12243" Association="UPC_MUNIModel.FK__ReciboPro__CodEs__36B12243">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="ReciboProvisional" EntitySet="ReciboProvisional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__CodEs__693CA210" Association="UPC_MUNIModel.FK__Solicitud__CodEs__693CA210">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__Estad__2D27B809" Association="UPC_MUNIModel.FK__Solicitud__Estad__2D27B809">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__TipoD__2B3F6F97" Association="UPC_MUNIModel.FK__Solicitud__TipoD__2B3F6F97">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TipoCambi__CodMo__5DCAEF64" Association="UPC_MUNIModel.FK__TipoCambi__CodMo__5DCAEF64">
+            <End Role="Multitabla" EntitySet="Multitabla" />
+            <End Role="TipoCambio" EntitySet="TipoCambio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__CodCo__68487DD7" Association="UPC_MUNIModel.FK__Solicitud__CodCo__68487DD7">
+            <End Role="ConceptoPago" EntitySet="ConceptoPago" />
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReciboPro__CodCo__35BCFE0A" Association="UPC_MUNIModel.FK__ReciboPro__CodCo__35BCFE0A">
+            <End Role="ConceptoRecibo" EntitySet="ConceptoRecibo" />
+            <End Role="ReciboProvisional" EntitySet="ReciboProvisional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitud__CodCo__6754599E" Association="UPC_MUNIModel.FK__Solicitud__CodCo__6754599E">
+            <End Role="Contribuyente" EntitySet="Contribuyente" />
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pago__CodFormaPa__6D0D32F4" Association="UPC_MUNIModel.FK__Pago__CodFormaPa__6D0D32F4">
+            <End Role="FormaPago" EntitySet="FormaPago" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pago__CodTipoCam__6E01572D" Association="UPC_MUNIModel.FK__Pago__CodTipoCam__6E01572D">
+            <End Role="TipoCambio" EntitySet="TipoCambio" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pago__NumSolicit__6C190EBB" Association="UPC_MUNIModel.FK__Pago__NumSolicit__6C190EBB">
+            <End Role="SolicitudPagoServicio" EntitySet="SolicitudPagoServicio" />
+            <End Role="PagoServicio" EntitySet="PagoServicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Expedient__Numer__300424B4" Association="UPC_MUNIModel.FK__Expedient__Numer__300424B4">
+            <End Role="SolicitudInformacionMunicipal" EntitySet="SolicitudInformacionMunicipal" />
+            <End Role="Expediente" EntitySet="Expediente" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AsignacionBienMueble">
+          <Key>
+            <PropertyRef Name="IdAsignacion" />
+          </Key>
+          <Property Name="IdAsignacion" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSolicitudAsignacion" Type="Int32" Nullable="false" />
+          <Property Name="IdUsuarioTrabajador" Type="Int32" Nullable="false" />
+          <Property Name="IdBienMueble" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="FechaAsignacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuRegistro" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuModifica" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BienMueble" Relationship="UPC_MUNIModel.FK__Asignacio__IdBie__276EDEB3" FromRole="AsignacionBienMueble" ToRole="BienMueble" />
+          <NavigationProperty Name="SolicitudAsignacionBienMueble" Relationship="UPC_MUNIModel.FK__Asignacio__IdSol__286302EC" FromRole="AsignacionBienMueble" ToRole="SolicitudAsignacionBienMueble" />
+          <NavigationProperty Name="UsuarioTrabajador" Relationship="UPC_MUNIModel.FK__Asignacio__IdUsu__267ABA7A" FromRole="AsignacionBienMueble" ToRole="UsuarioTrabajador" />
+        </EntityType>
+        <EntityType Name="BienMueble">
+          <Key>
+            <PropertyRef Name="IdBienMueble" />
+          </Key>
+          <Property Name="IdBienMueble" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UsuRegistro" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuModifica" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AsignacionBienMueble" Relationship="UPC_MUNIModel.FK__Asignacio__IdBie__276EDEB3" FromRole="BienMueble" ToRole="AsignacionBienMueble" />
+          <NavigationProperty Name="Estado" Relationship="UPC_MUNIModel.FK__BienMuebl__IdEst__1B0907CE" FromRole="BienMueble" ToRole="Estado" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="IdEstado" />
+          </Key>
+          <Property Name="IdEstado" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="UsuRegistro" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuModifica" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BienMueble" Relationship="UPC_MUNIModel.FK__BienMuebl__IdEst__1B0907CE" FromRole="Estado" ToRole="BienMueble" />
+          <NavigationProperty Name="SolicitudAsignacionBienMueble" Relationship="UPC_MUNIModel.FK__Solicitud__IdEst__22AA2996" FromRole="Estado" ToRole="SolicitudAsignacionBienMueble" />
+          <NavigationProperty Name="UsuarioTrabajador" Relationship="UPC_MUNIModel.FK__UsuarioTr__IdEst__1FCDBCEB" FromRole="Estado" ToRole="UsuarioTrabajador" />
+        </EntityType>
+        <EntityType Name="SolicitudAsignacionBienMueble">
+          <Key>
+            <PropertyRef Name="IdSolicitudAsignacion" />
+          </Key>
+          <Property Name="IdSolicitudAsignacion" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="IdArea" Type="Int32" Nullable="false" />
+          <Property Name="NroSolicitudAsignacion" Type="Int32" Nullable="false" />
+          <Property Name="FechaSolicitudAsignacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdUsuarioTrabajador" Type="Int32" Nullable="false" />
+          <Property Name="UsuRegistro" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuModifica" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AsignacionBienMueble" Relationship="UPC_MUNIModel.FK__Asignacio__IdSol__286302EC" FromRole="SolicitudAsignacionBienMueble" ToRole="AsignacionBienMueble" />
+          <NavigationProperty Name="Estado" Relationship="UPC_MUNIModel.FK__Solicitud__IdEst__22AA2996" FromRole="SolicitudAsignacionBienMueble" ToRole="Estado" />
+          <NavigationProperty Name="Area" Relationship="UPC_MUNIModel.FK__Solicitud__IdAre__239E4DCF" FromRole="SolicitudAsignacionBienMueble" ToRole="Area" />
+        </EntityType>
+        <EntityType Name="UsuarioTrabajador">
+          <Key>
+            <PropertyRef Name="IdUsuarioTrabajador" />
+          </Key>
+          <Property Name="IdUsuarioTrabajador" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdArea" Type="Int32" Nullable="false" />
+          <Property Name="IdCargo" Type="Int32" Nullable="false" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ApePaterno" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ApeMaterno" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdDocumento" Type="Int32" Nullable="false" />
+          <Property Name="NroDocumento" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaCese" Type="DateTime" Precision="3" />
+          <Property Name="UsuRegistro" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuModifica" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AsignacionBienMueble" Relationship="UPC_MUNIModel.FK__Asignacio__IdUsu__267ABA7A" FromRole="UsuarioTrabajador" ToRole="AsignacionBienMueble" />
+          <NavigationProperty Name="Estado" Relationship="UPC_MUNIModel.FK__UsuarioTr__IdEst__1FCDBCEB" FromRole="UsuarioTrabajador" ToRole="Estado" />
+          <NavigationProperty Name="ReciboProvisional" Relationship="UPC_MUNIModel.FK__ReciboPro__CodTr__37A5467C" FromRole="UsuarioTrabajador" ToRole="ReciboProvisional" />
+          <NavigationProperty Name="SolicitudInformacionMunicipal" Relationship="UPC_MUNIModel.FK__Solicitud__IdUsu__2C3393D0" FromRole="UsuarioTrabajador" ToRole="SolicitudInformacionMunicipal" />
+          <NavigationProperty Name="Area" Relationship="UPC_MUNIModel.FK__UsuarioTr__IdAre__1DE57479" FromRole="UsuarioTrabajador" ToRole="Area" />
+          <NavigationProperty Name="Cargo" Relationship="UPC_MUNIModel.FK__UsuarioTr__IdCar__1ED998B2" FromRole="UsuarioTrabajador" ToRole="Cargo" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="IdArea" />
+          </Key>
+          <Property Name="IdArea" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="UsuRegistro" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuModifica" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SolicitudAsignacionBienMueble" Relationship="UPC_MUNIModel.FK__Solicitud__IdAre__239E4DCF" FromRole="Area" ToRole="SolicitudAsignacionBienMueble" />
+          <NavigationProperty Name="UsuarioTrabajador" Relationship="UPC_MUNIModel.FK__UsuarioTr__IdAre__1DE57479" FromRole="Area" ToRole="UsuarioTrabajador" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="UsuRegistro" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsuModifica" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UsuarioTrabajador" Relationship="UPC_MUNIModel.FK__UsuarioTr__IdCar__1ED998B2" FromRole="Cargo" ToRole="UsuarioTrabajador" />
+        </EntityType>
+        <EntityType Name="GrupoTabla">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="NombreGrupo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="Int32" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__Multitabl__IdGru__1273C1CD" FromRole="GrupoTabla" ToRole="Multitabla" />
+        </EntityType>
+        <EntityType Name="Multitabla">
+          <Key>
+            <PropertyRef Name="IdMultitabla" />
+          </Key>
+          <Property Name="IdMultitabla" Type="String" Nullable="false" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="IdGrupo" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+          <Property Name="NombreValor" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="DescripcionLarga" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="Int32" />
+          <NavigationProperty Name="GrupoTabla" Relationship="UPC_MUNIModel.FK__Multitabl__IdGru__1273C1CD" FromRole="Multitabla" ToRole="GrupoTabla" />
+          <NavigationProperty Name="Contribuyente" Relationship="UPC_MUNIModel.FK__Contribuy__CodTi__6477ECF3" FromRole="Multitabla" ToRole="Contribuyente" />
+          <NavigationProperty Name="Expediente" Relationship="UPC_MUNIModel.FK__Expedient__Tipo___30F848ED" FromRole="Multitabla" ToRole="Expediente" />
+          <NavigationProperty Name="MovimientoCajaChica" Relationship="UPC_MUNIModel.FK__Movimient__CodOr__3B75D760" FromRole="Multitabla" ToRole="MovimientoCajaChica" />
+          <NavigationProperty Name="MovimientoCajaChica1" Relationship="UPC_MUNIModel.FK__Movimient__CodTi__3A81B327" FromRole="Multitabla" ToRole="MovimientoCajaChica" />
+          <NavigationProperty Name="PagoServicio" Relationship="UPC_MUNIModel.FK__Pago__CodEstadoP__6FE99F9F" FromRole="Multitabla" ToRole="PagoServicio" />
+          <NavigationProperty Name="PagoServicio1" Relationship="UPC_MUNIModel.FK__Pago__CodMonedaP__6EF57B66" FromRole="Multitabla" ToRole="PagoServicio" />
+          <NavigationProperty Name="ReciboProvisional" Relationship="UPC_MUNIModel.FK__ReciboPro__CodEs__36B12243" FromRole="Multitabla" ToRole="ReciboProvisional" />
+          <NavigationProperty Name="SolicitudPagoServicio" Relationship="UPC_MUNIModel.FK__Solicitud__CodEs__693CA210" FromRole="Multitabla" ToRole="SolicitudPagoServicio" />
+          <NavigationProperty Name="SolicitudInformacionMunicipal" Relationship="UPC_MUNIModel.FK__Solicitud__Estad__2D27B809" FromRole="Multitabla" ToRole="SolicitudInformacionMunicipal" />
+          <NavigationProperty Name="SolicitudInformacionMunicipal1" Relationship="UPC_MUNIModel.FK__Solicitud__TipoD__2B3F6F97" FromRole="Multitabla" ToRole="SolicitudInformacionMunicipal" />
+          <NavigationProperty Name="TipoCambio" Relationship="UPC_MUNIModel.FK__TipoCambi__CodMo__5DCAEF64" FromRole="Multitabla" ToRole="TipoCambio" />
+        </EntityType>
+        <EntityType Name="ConceptoPago">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SolicitudPagoServicio" Relationship="UPC_MUNIModel.FK__Solicitud__CodCo__68487DD7" FromRole="ConceptoPago" ToRole="SolicitudPagoServicio" />
+        </EntityType>
+        <EntityType Name="ConceptoRecibo">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ReciboProvisional" Relationship="UPC_MUNIModel.FK__ReciboPro__CodCo__35BCFE0A" FromRole="ConceptoRecibo" ToRole="ReciboProvisional" />
+        </EntityType>
+        <EntityType Name="Contribuyente">
+          <Key>
+            <PropertyRef Name="CodContribuyente" />
+          </Key>
+          <Property Name="CodContribuyente" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="CodTipoDocumento" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="NumDocumento" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoFijo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TelefonoMovil" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__Contribuy__CodTi__6477ECF3" FromRole="Contribuyente" ToRole="Multitabla" />
+          <NavigationProperty Name="SolicitudPagoServicio" Relationship="UPC_MUNIModel.FK__Solicitud__CodCo__6754599E" FromRole="Contribuyente" ToRole="SolicitudPagoServicio" />
+        </EntityType>
+        <EntityType Name="FormaPago">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PagoServicio" Relationship="UPC_MUNIModel.FK__Pago__CodFormaPa__6D0D32F4" FromRole="FormaPago" ToRole="PagoServicio" />
+        </EntityType>
+        <EntityType Name="MovimientoCajaChica">
+          <Key>
+            <PropertyRef Name="CodigoMovimiento" />
+          </Key>
+          <Property Name="CodigoMovimiento" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaActualizacion" Type="DateTime" Precision="3" />
+          <Property Name="MontoMovimiento" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="CodTipoMovimiento" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="CodOrigenMovimiento" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__Movimient__CodOr__3B75D760" FromRole="MovimientoCajaChica" ToRole="Multitabla" />
+          <NavigationProperty Name="Multitabla1" Relationship="UPC_MUNIModel.FK__Movimient__CodTi__3A81B327" FromRole="MovimientoCajaChica" ToRole="Multitabla" />
+        </EntityType>
+        <EntityType Name="PagoServicio">
+          <Key>
+            <PropertyRef Name="NumeroPago" />
+          </Key>
+          <Property Name="NumeroPago" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NumSolicitudPago" Type="Int64" />
+          <Property Name="CodFormaPago" Type="Int64" />
+          <Property Name="CodTipoCambio" Type="Int64" />
+          <Property Name="CodMonedaPago" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="MontoPago" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="FechaPago" Type="DateTime" Precision="3" />
+          <Property Name="CodEstadoPago" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__Pago__CodEstadoP__6FE99F9F" FromRole="PagoServicio" ToRole="Multitabla" />
+          <NavigationProperty Name="Multitabla1" Relationship="UPC_MUNIModel.FK__Pago__CodMonedaP__6EF57B66" FromRole="PagoServicio" ToRole="Multitabla" />
+          <NavigationProperty Name="FormaPago" Relationship="UPC_MUNIModel.FK__Pago__CodFormaPa__6D0D32F4" FromRole="PagoServicio" ToRole="FormaPago" />
+          <NavigationProperty Name="TipoCambio" Relationship="UPC_MUNIModel.FK__Pago__CodTipoCam__6E01572D" FromRole="PagoServicio" ToRole="TipoCambio" />
+          <NavigationProperty Name="SolicitudPagoServicio" Relationship="UPC_MUNIModel.FK__Pago__NumSolicit__6C190EBB" FromRole="PagoServicio" ToRole="SolicitudPagoServicio" />
+        </EntityType>
+        <EntityType Name="ReciboProvisional">
+          <Key>
+            <PropertyRef Name="NumeroRecibo" />
+          </Key>
+          <Property Name="NumeroRecibo" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CodConceptoRecibo" Type="Int64" />
+          <Property Name="Motivo" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaEnvio" Type="DateTime" Precision="3" />
+          <Property Name="CodEstado" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="CodTrabajador" Type="Int32" />
+          <Property Name="MotivoRechazo" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="UsuarioTrabajador" Relationship="UPC_MUNIModel.FK__ReciboPro__CodTr__37A5467C" FromRole="ReciboProvisional" ToRole="UsuarioTrabajador" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__ReciboPro__CodEs__36B12243" FromRole="ReciboProvisional" ToRole="Multitabla" />
+          <NavigationProperty Name="ConceptoRecibo" Relationship="UPC_MUNIModel.FK__ReciboPro__CodCo__35BCFE0A" FromRole="ReciboProvisional" ToRole="ConceptoRecibo" />
+        </EntityType>
+        <EntityType Name="SolicitudPagoServicio">
+          <Key>
+            <PropertyRef Name="NumSolicitudPago" />
+          </Key>
+          <Property Name="NumSolicitudPago" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CodContribuyente" Type="Int64" />
+          <Property Name="FechaSolicitud" Type="DateTime" Precision="3" />
+          <Property Name="CodConceptoPago" Type="Int64" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="Motivo" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="CodEstadoSolicitud" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__Solicitud__CodEs__693CA210" FromRole="SolicitudPagoServicio" ToRole="Multitabla" />
+          <NavigationProperty Name="ConceptoPago" Relationship="UPC_MUNIModel.FK__Solicitud__CodCo__68487DD7" FromRole="SolicitudPagoServicio" ToRole="ConceptoPago" />
+          <NavigationProperty Name="Contribuyente" Relationship="UPC_MUNIModel.FK__Solicitud__CodCo__6754599E" FromRole="SolicitudPagoServicio" ToRole="Contribuyente" />
+          <NavigationProperty Name="PagoServicio" Relationship="UPC_MUNIModel.FK__Pago__NumSolicit__6C190EBB" FromRole="SolicitudPagoServicio" ToRole="PagoServicio" />
+        </EntityType>
+        <EntityType Name="TipoCambio">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CodMoneda" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Monto" Type="Decimal" Precision="8" Scale="4" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__TipoCambi__CodMo__5DCAEF64" FromRole="TipoCambio" ToRole="Multitabla" />
+          <NavigationProperty Name="PagoServicio" Relationship="UPC_MUNIModel.FK__Pago__CodTipoCam__6E01572D" FromRole="TipoCambio" ToRole="PagoServicio" />
+        </EntityType>
+        <EntityType Name="Expediente">
+          <Key>
+            <PropertyRef Name="NumeroExpediente" />
+          </Key>
+          <Property Name="NumeroExpediente" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaExpediente" Type="DateTime" Precision="3" />
+          <Property Name="NumeroSolicitud" Type="Int64" />
+          <Property Name="Tipo_Expediente" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Asunto" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="Int32" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__Expedient__Tipo___30F848ED" FromRole="Expediente" ToRole="Multitabla" />
+          <NavigationProperty Name="SolicitudInformacionMunicipal" Relationship="UPC_MUNIModel.FK__Expedient__Numer__300424B4" FromRole="Expediente" ToRole="SolicitudInformacionMunicipal" />
+        </EntityType>
+        <EntityType Name="SolicitudInformacionMunicipal">
+          <Key>
+            <PropertyRef Name="NumeroSolicitud" />
+          </Key>
+          <Property Name="NumeroSolicitud" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaSolicitud" Type="DateTime" Precision="3" />
+          <Property Name="NombresSolicitante" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ApellidoPaternoSolicitante" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ApellidoMaternoSolicitante" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="NumeroDocumento" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Direccion" Type="String" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Celular" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Modo_Envio" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="IdUsuarioTrabajador" Type="Int32" />
+          <Property Name="Tipo_Informacion" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="Motivo_Solicitud" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Estado" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="UsuarioTrabajador" Relationship="UPC_MUNIModel.FK__Solicitud__IdUsu__2C3393D0" FromRole="SolicitudInformacionMunicipal" ToRole="UsuarioTrabajador" />
+          <NavigationProperty Name="Multitabla" Relationship="UPC_MUNIModel.FK__Solicitud__Estad__2D27B809" FromRole="SolicitudInformacionMunicipal" ToRole="Multitabla" />
+          <NavigationProperty Name="Multitabla1" Relationship="UPC_MUNIModel.FK__Solicitud__TipoD__2B3F6F97" FromRole="SolicitudInformacionMunicipal" ToRole="Multitabla" />
+          <NavigationProperty Name="Expediente" Relationship="UPC_MUNIModel.FK__Expedient__Numer__300424B4" FromRole="SolicitudInformacionMunicipal" ToRole="Expediente" />
+        </EntityType>
+        <Association Name="FK__Asignacio__IdBie__276EDEB3">
+          <End Role="BienMueble" Type="UPC_MUNIModel.BienMueble" Multiplicity="1" />
+          <End Role="AsignacionBienMueble" Type="UPC_MUNIModel.AsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BienMueble">
+              <PropertyRef Name="IdBienMueble" />
+            </Principal>
+            <Dependent Role="AsignacionBienMueble">
+              <PropertyRef Name="IdBienMueble" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Asignacio__IdSol__286302EC">
+          <End Role="SolicitudAsignacionBienMueble" Type="UPC_MUNIModel.SolicitudAsignacionBienMueble" Multiplicity="1" />
+          <End Role="AsignacionBienMueble" Type="UPC_MUNIModel.AsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudAsignacionBienMueble">
+              <PropertyRef Name="IdSolicitudAsignacion" />
+            </Principal>
+            <Dependent Role="AsignacionBienMueble">
+              <PropertyRef Name="IdSolicitudAsignacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Asignacio__IdUsu__267ABA7A">
+          <End Role="UsuarioTrabajador" Type="UPC_MUNIModel.UsuarioTrabajador" Multiplicity="1" />
+          <End Role="AsignacionBienMueble" Type="UPC_MUNIModel.AsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioTrabajador">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Principal>
+            <Dependent Role="AsignacionBienMueble">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BienMuebl__IdEst__1B0907CE">
+          <End Role="Estado" Type="UPC_MUNIModel.Estado" Multiplicity="1" />
+          <End Role="BienMueble" Type="UPC_MUNIModel.BienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="BienMueble">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__IdEst__22AA2996">
+          <End Role="Estado" Type="UPC_MUNIModel.Estado" Multiplicity="1" />
+          <End Role="SolicitudAsignacionBienMueble" Type="UPC_MUNIModel.SolicitudAsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="SolicitudAsignacionBienMueble">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuarioTr__IdEst__1FCDBCEB">
+          <End Role="Estado" Type="UPC_MUNIModel.Estado" Multiplicity="1" />
+          <End Role="UsuarioTrabajador" Type="UPC_MUNIModel.UsuarioTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="IdEstado" />
+            </Principal>
+            <Dependent Role="UsuarioTrabajador">
+              <PropertyRef Name="IdEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__IdAre__239E4DCF">
+          <End Role="Area" Type="UPC_MUNIModel.Area" Multiplicity="1" />
+          <End Role="SolicitudAsignacionBienMueble" Type="UPC_MUNIModel.SolicitudAsignacionBienMueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="SolicitudAsignacionBienMueble">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReciboPro__CodTr__37A5467C">
+          <End Role="UsuarioTrabajador" Type="UPC_MUNIModel.UsuarioTrabajador" Multiplicity="0..1" />
+          <End Role="ReciboProvisional" Type="UPC_MUNIModel.ReciboProvisional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioTrabajador">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Principal>
+            <Dependent Role="ReciboProvisional">
+              <PropertyRef Name="CodTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__IdUsu__2C3393D0">
+          <End Role="UsuarioTrabajador" Type="UPC_MUNIModel.UsuarioTrabajador" Multiplicity="0..1" />
+          <End Role="SolicitudInformacionMunicipal" Type="UPC_MUNIModel.SolicitudInformacionMunicipal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsuarioTrabajador">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Principal>
+            <Dependent Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="IdUsuarioTrabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuarioTr__IdAre__1DE57479">
+          <End Role="Area" Type="UPC_MUNIModel.Area" Multiplicity="1" />
+          <End Role="UsuarioTrabajador" Type="UPC_MUNIModel.UsuarioTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="IdArea" />
+            </Principal>
+            <Dependent Role="UsuarioTrabajador">
+              <PropertyRef Name="IdArea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuarioTr__IdCar__1ED998B2">
+          <End Role="Cargo" Type="UPC_MUNIModel.Cargo" Multiplicity="1" />
+          <End Role="UsuarioTrabajador" Type="UPC_MUNIModel.UsuarioTrabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="IdCargo" />
+            </Principal>
+            <Dependent Role="UsuarioTrabajador">
+              <PropertyRef Name="IdCargo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Multitabl__IdGru__1273C1CD">
+          <End Role="GrupoTabla" Type="UPC_MUNIModel.GrupoTabla" Multiplicity="0..1" />
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupoTabla">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Multitabla">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contribuy__CodTi__6477ECF3">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="Contribuyente" Type="UPC_MUNIModel.Contribuyente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="Contribuyente">
+              <PropertyRef Name="CodTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expedient__Tipo___30F848ED">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="Expediente" Type="UPC_MUNIModel.Expediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="Expediente">
+              <PropertyRef Name="Tipo_Expediente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movimient__CodOr__3B75D760">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="MovimientoCajaChica" Type="UPC_MUNIModel.MovimientoCajaChica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="MovimientoCajaChica">
+              <PropertyRef Name="CodOrigenMovimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movimient__CodTi__3A81B327">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="MovimientoCajaChica" Type="UPC_MUNIModel.MovimientoCajaChica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="MovimientoCajaChica">
+              <PropertyRef Name="CodTipoMovimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pago__CodEstadoP__6FE99F9F">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="UPC_MUNIModel.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodEstadoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pago__CodMonedaP__6EF57B66">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="UPC_MUNIModel.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodMonedaPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReciboPro__CodEs__36B12243">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="ReciboProvisional" Type="UPC_MUNIModel.ReciboProvisional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="ReciboProvisional">
+              <PropertyRef Name="CodEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__CodEs__693CA210">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="SolicitudPagoServicio" Type="UPC_MUNIModel.SolicitudPagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="SolicitudPagoServicio">
+              <PropertyRef Name="CodEstadoSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__Estad__2D27B809">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="SolicitudInformacionMunicipal" Type="UPC_MUNIModel.SolicitudInformacionMunicipal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__TipoD__2B3F6F97">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="SolicitudInformacionMunicipal" Type="UPC_MUNIModel.SolicitudInformacionMunicipal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="TipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TipoCambi__CodMo__5DCAEF64">
+          <End Role="Multitabla" Type="UPC_MUNIModel.Multitabla" Multiplicity="0..1" />
+          <End Role="TipoCambio" Type="UPC_MUNIModel.TipoCambio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multitabla">
+              <PropertyRef Name="IdMultitabla" />
+            </Principal>
+            <Dependent Role="TipoCambio">
+              <PropertyRef Name="CodMoneda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__CodCo__68487DD7">
+          <End Role="ConceptoPago" Type="UPC_MUNIModel.ConceptoPago" Multiplicity="0..1" />
+          <End Role="SolicitudPagoServicio" Type="UPC_MUNIModel.SolicitudPagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoPago">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="SolicitudPagoServicio">
+              <PropertyRef Name="CodConceptoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReciboPro__CodCo__35BCFE0A">
+          <End Role="ConceptoRecibo" Type="UPC_MUNIModel.ConceptoRecibo" Multiplicity="0..1" />
+          <End Role="ReciboProvisional" Type="UPC_MUNIModel.ReciboProvisional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConceptoRecibo">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="ReciboProvisional">
+              <PropertyRef Name="CodConceptoRecibo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitud__CodCo__6754599E">
+          <End Role="Contribuyente" Type="UPC_MUNIModel.Contribuyente" Multiplicity="0..1" />
+          <End Role="SolicitudPagoServicio" Type="UPC_MUNIModel.SolicitudPagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contribuyente">
+              <PropertyRef Name="CodContribuyente" />
+            </Principal>
+            <Dependent Role="SolicitudPagoServicio">
+              <PropertyRef Name="CodContribuyente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pago__CodFormaPa__6D0D32F4">
+          <End Role="FormaPago" Type="UPC_MUNIModel.FormaPago" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="UPC_MUNIModel.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormaPago">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodFormaPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pago__CodTipoCam__6E01572D">
+          <End Role="TipoCambio" Type="UPC_MUNIModel.TipoCambio" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="UPC_MUNIModel.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCambio">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="CodTipoCambio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pago__NumSolicit__6C190EBB">
+          <End Role="SolicitudPagoServicio" Type="UPC_MUNIModel.SolicitudPagoServicio" Multiplicity="0..1" />
+          <End Role="PagoServicio" Type="UPC_MUNIModel.PagoServicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudPagoServicio">
+              <PropertyRef Name="NumSolicitudPago" />
+            </Principal>
+            <Dependent Role="PagoServicio">
+              <PropertyRef Name="NumSolicitudPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Expedient__Numer__300424B4">
+          <End Role="SolicitudInformacionMunicipal" Type="UPC_MUNIModel.SolicitudInformacionMunicipal" Multiplicity="0..1" />
+          <End Role="Expediente" Type="UPC_MUNIModel.Expediente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SolicitudInformacionMunicipal">
+              <PropertyRef Name="NumeroSolicitud" />
+            </Principal>
+            <Dependent Role="Expediente">
+              <PropertyRef Name="NumeroSolicitud" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UPC_MUNIModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AsignacionBienMueble">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.AsignacionBienMueble">
+              <MappingFragment StoreEntitySet="AsignacionBienMueble">
+                <ScalarProperty Name="IdAsignacion" ColumnName="IdAsignacion" />
+                <ScalarProperty Name="IdSolicitudAsignacion" ColumnName="IdSolicitudAsignacion" />
+                <ScalarProperty Name="IdUsuarioTrabajador" ColumnName="IdUsuarioTrabajador" />
+                <ScalarProperty Name="IdBienMueble" ColumnName="IdBienMueble" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaAsignacion" ColumnName="FechaAsignacion" />
+                <ScalarProperty Name="UsuRegistro" ColumnName="UsuRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="UsuModifica" ColumnName="UsuModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BienMueble">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.BienMueble">
+              <MappingFragment StoreEntitySet="BienMueble">
+                <ScalarProperty Name="IdBienMueble" ColumnName="IdBienMueble" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="UsuRegistro" ColumnName="UsuRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="UsuModifica" ColumnName="UsuModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuRegistro" ColumnName="UsuRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="UsuModifica" ColumnName="UsuModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudAsignacionBienMueble">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.SolicitudAsignacionBienMueble">
+              <MappingFragment StoreEntitySet="SolicitudAsignacionBienMueble">
+                <ScalarProperty Name="IdSolicitudAsignacion" ColumnName="IdSolicitudAsignacion" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+                <ScalarProperty Name="NroSolicitudAsignacion" ColumnName="NroSolicitudAsignacion" />
+                <ScalarProperty Name="FechaSolicitudAsignacion" ColumnName="FechaSolicitudAsignacion" />
+                <ScalarProperty Name="IdUsuarioTrabajador" ColumnName="IdUsuarioTrabajador" />
+                <ScalarProperty Name="UsuRegistro" ColumnName="UsuRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="UsuModifica" ColumnName="UsuModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuarioTrabajador">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.UsuarioTrabajador">
+              <MappingFragment StoreEntitySet="UsuarioTrabajador">
+                <ScalarProperty Name="IdUsuarioTrabajador" ColumnName="IdUsuarioTrabajador" />
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApePaterno" ColumnName="ApePaterno" />
+                <ScalarProperty Name="ApeMaterno" ColumnName="ApeMaterno" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="NroDocumento" ColumnName="NroDocumento" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="FechaCese" ColumnName="FechaCese" />
+                <ScalarProperty Name="UsuRegistro" ColumnName="UsuRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="UsuModifica" ColumnName="UsuModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuRegistro" ColumnName="UsuRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="UsuModifica" ColumnName="UsuModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargo">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.Cargo">
+              <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="UsuRegistro" ColumnName="UsuRegistro" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="UsuModifica" ColumnName="UsuModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrupoTabla">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.GrupoTabla">
+              <MappingFragment StoreEntitySet="GrupoTabla">
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="NombreGrupo" ColumnName="NombreGrupo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Multitabla">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.Multitabla">
+              <MappingFragment StoreEntitySet="Multitabla">
+                <ScalarProperty Name="IdMultitabla" ColumnName="IdMultitabla" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="NombreValor" ColumnName="NombreValor" />
+                <ScalarProperty Name="DescripcionLarga" ColumnName="DescripcionLarga" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoPago">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.ConceptoPago">
+              <MappingFragment StoreEntitySet="ConceptoPago">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConceptoRecibo">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.ConceptoRecibo">
+              <MappingFragment StoreEntitySet="ConceptoRecibo">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contribuyente">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.Contribuyente">
+              <MappingFragment StoreEntitySet="Contribuyente">
+                <ScalarProperty Name="CodContribuyente" ColumnName="CodContribuyente" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodTipoDocumento" ColumnName="CodTipoDocumento" />
+                <ScalarProperty Name="NumDocumento" ColumnName="NumDocumento" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="TelefonoFijo" ColumnName="TelefonoFijo" />
+                <ScalarProperty Name="TelefonoMovil" ColumnName="TelefonoMovil" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormaPago">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.FormaPago">
+              <MappingFragment StoreEntitySet="FormaPago">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MovimientoCajaChica">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.MovimientoCajaChica">
+              <MappingFragment StoreEntitySet="MovimientoCajaChica">
+                <ScalarProperty Name="CodigoMovimiento" ColumnName="CodigoMovimiento" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaActualizacion" ColumnName="FechaActualizacion" />
+                <ScalarProperty Name="MontoMovimiento" ColumnName="MontoMovimiento" />
+                <ScalarProperty Name="CodTipoMovimiento" ColumnName="CodTipoMovimiento" />
+                <ScalarProperty Name="CodOrigenMovimiento" ColumnName="CodOrigenMovimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PagoServicio">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.PagoServicio">
+              <MappingFragment StoreEntitySet="PagoServicio">
+                <ScalarProperty Name="NumeroPago" ColumnName="NumeroPago" />
+                <ScalarProperty Name="NumSolicitudPago" ColumnName="NumSolicitudPago" />
+                <ScalarProperty Name="CodFormaPago" ColumnName="CodFormaPago" />
+                <ScalarProperty Name="CodTipoCambio" ColumnName="CodTipoCambio" />
+                <ScalarProperty Name="CodMonedaPago" ColumnName="CodMonedaPago" />
+                <ScalarProperty Name="MontoPago" ColumnName="MontoPago" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="CodEstadoPago" ColumnName="CodEstadoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReciboProvisional">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.ReciboProvisional">
+              <MappingFragment StoreEntitySet="ReciboProvisional">
+                <ScalarProperty Name="NumeroRecibo" ColumnName="NumeroRecibo" />
+                <ScalarProperty Name="CodConceptoRecibo" ColumnName="CodConceptoRecibo" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaEnvio" ColumnName="FechaEnvio" />
+                <ScalarProperty Name="CodEstado" ColumnName="CodEstado" />
+                <ScalarProperty Name="CodTrabajador" ColumnName="CodTrabajador" />
+                <ScalarProperty Name="MotivoRechazo" ColumnName="MotivoRechazo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudPagoServicio">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.SolicitudPagoServicio">
+              <MappingFragment StoreEntitySet="SolicitudPagoServicio">
+                <ScalarProperty Name="NumSolicitudPago" ColumnName="NumSolicitudPago" />
+                <ScalarProperty Name="CodContribuyente" ColumnName="CodContribuyente" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="CodConceptoPago" ColumnName="CodConceptoPago" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="CodEstadoSolicitud" ColumnName="CodEstadoSolicitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCambio">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.TipoCambio">
+              <MappingFragment StoreEntitySet="TipoCambio">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodMoneda" ColumnName="CodMoneda" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expediente">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.Expediente">
+              <MappingFragment StoreEntitySet="Expediente">
+                <ScalarProperty Name="NumeroExpediente" ColumnName="NumeroExpediente" />
+                <ScalarProperty Name="FechaExpediente" ColumnName="FechaExpediente" />
+                <ScalarProperty Name="NumeroSolicitud" ColumnName="NumeroSolicitud" />
+                <ScalarProperty Name="Tipo_Expediente" ColumnName="Tipo_Expediente" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolicitudInformacionMunicipal">
+            <EntityTypeMapping TypeName="UPC_MUNIModel.SolicitudInformacionMunicipal">
+              <MappingFragment StoreEntitySet="SolicitudInformacionMunicipal">
+                <ScalarProperty Name="NumeroSolicitud" ColumnName="NumeroSolicitud" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="NombresSolicitante" ColumnName="NombresSolicitante" />
+                <ScalarProperty Name="ApellidoPaternoSolicitante" ColumnName="ApellidoPaternoSolicitante" />
+                <ScalarProperty Name="ApellidoMaternoSolicitante" ColumnName="ApellidoMaternoSolicitante" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="NumeroDocumento" ColumnName="NumeroDocumento" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Modo_Envio" ColumnName="Modo_Envio" />
+                <ScalarProperty Name="IdUsuarioTrabajador" ColumnName="IdUsuarioTrabajador" />
+                <ScalarProperty Name="Tipo_Informacion" ColumnName="Tipo_Informacion" />
+                <ScalarProperty Name="Motivo_Solicitud" ColumnName="Motivo_Solicitud" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

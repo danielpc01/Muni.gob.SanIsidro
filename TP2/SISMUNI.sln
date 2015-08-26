@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sismuni.Dominio.Negocio", "Sismuni.Dominio.Servicio\Sismuni.Dominio.Negocio.csproj", "{4F93A254-61DB-4253-AA6B-C7A3A219EBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sismuni.Infraestructura.Data", "Sismuni.Infraestructura.Data\Sismuni.Infraestructura.Data.csproj", "{B11E8029-9780-47CD-99ED-6E17B6ADF48A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sismuni.Dominio.Entidad", "Sismuni.Dominio.Entidad\Sismuni.Dominio.Entidad.csproj", "{B4240FA8-3D1C-4AB6-BB46-DA7A34531D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sismuni.Agente.Servicio", "Sismuni.Agente.Servicio\Sismuni.Agente.Servicio.csproj", "{F0AEBAB1-C93D-4180-946B-BB91F5DF4974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sismuni.Presentacion.Web", "Sismuni.Presentacion.Web\Sismuni.Presentacion.Web.csproj", "{AD1C4D37-F5A2-4ED2-8691-8745865BD059}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://muni-sanisidro.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sismuni.Infraestructura.Data\\Sismuni.Infraestructura.Data.csproj
+		SccProjectName1 = Sismuni.Infraestructura.Data
+		SccLocalPath1 = Sismuni.Infraestructura.Data
+		SccProjectUniqueName2 = Sismuni.Dominio.Entidad\\Sismuni.Dominio.Entidad.csproj
+		SccProjectName2 = Sismuni.Dominio.Entidad
+		SccLocalPath2 = Sismuni.Dominio.Entidad
+		SccProjectUniqueName3 = Sismuni.Agente.Servicio\\Sismuni.Agente.Servicio.csproj
+		SccProjectName3 = Sismuni.Agente.Servicio
+		SccLocalPath3 = Sismuni.Agente.Servicio
+		SccProjectUniqueName4 = Sismuni.Presentacion.Web\\Sismuni.Presentacion.Web.csproj
+		SccProjectName4 = Sismuni.Presentacion.Web
+		SccLocalPath4 = Sismuni.Presentacion.Web
+		SccProjectUniqueName5 = Sismuni.Dominio.Servicio\\Sismuni.Dominio.Negocio.csproj
+		SccProjectName5 = Sismuni.Dominio.Servicio
+		SccLocalPath5 = Sismuni.Dominio.Servicio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F93A254-61DB-4253-AA6B-C7A3A219EBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F93A254-61DB-4253-AA6B-C7A3A219EBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F93A254-61DB-4253-AA6B-C7A3A219EBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F93A254-61DB-4253-AA6B-C7A3A219EBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B11E8029-9780-47CD-99ED-6E17B6ADF48A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B11E8029-9780-47CD-99ED-6E17B6ADF48A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B11E8029-9780-47CD-99ED-6E17B6ADF48A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B11E8029-9780-47CD-99ED-6E17B6ADF48A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4240FA8-3D1C-4AB6-BB46-DA7A34531D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4240FA8-3D1C-4AB6-BB46-DA7A34531D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4240FA8-3D1C-4AB6-BB46-DA7A34531D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4240FA8-3D1C-4AB6-BB46-DA7A34531D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0AEBAB1-C93D-4180-946B-BB91F5DF4974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0AEBAB1-C93D-4180-946B-BB91F5DF4974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0AEBAB1-C93D-4180-946B-BB91F5DF4974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0AEBAB1-C93D-4180-946B-BB91F5DF4974}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1C4D37-F5A2-4ED2-8691-8745865BD059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1C4D37-F5A2-4ED2-8691-8745865BD059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1C4D37-F5A2-4ED2-8691-8745865BD059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1C4D37-F5A2-4ED2-8691-8745865BD059}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
